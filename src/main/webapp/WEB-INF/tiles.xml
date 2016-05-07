@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<definition name="base.definition" template="/view/tiles/layout.jsp">
+		<put-attribute name="header" value="/view/tiles/header.jsp"></put-attribute>
+		<put-attribute name="footer" value="/view/tiles/footer.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+	</definition>
+
+
+
+	<definition name="film-*" extends="base.definition">
+		<put-attribute name="body" value="/view/film/{1}.jsp"></put-attribute>
+		<put-attribute name="title" value="Film {1}"></put-attribute>
+	</definition>
+
+	<definition name="book-*" extends="base.definition">
+		<put-attribute name="body" value="/view/book/{1}.jsp"></put-attribute>
+		<put-attribute name="title" value="Book {1}"></put-attribute>
+	</definition>
+
+	<definition name="song-*" extends="base.definition">
+		<put-attribute name="body" value="/view/song/{1}.jsp"></put-attribute>
+		<put-attribute name="title" value="Song {1}"></put-attribute>
+	</definition>
+	
+	<definition name="picture-*" extends="base.definition">
+		<put-attribute name="body" value="/view/picture/{1}.jsp"></put-attribute>
+		<put-attribute name="title" value="Picture {1}"></put-attribute>
+	</definition>
+	
+	<definition name="homepage" extends="base.definition">
+		<put-attribute name="body" value="/view/tiles/homepage.jsp"></put-attribute>
+		<put-attribute name="title" value="homepage"></put-attribute>
+	</definition>
+	<definition name="registration" extends="base.definition">
+		<put-attribute name="body" value="/view/tiles/registration.jsp"></put-attribute>
+		<put-attribute name="title" value="registration"></put-attribute>
+	</definition>
+</tiles-definitions>

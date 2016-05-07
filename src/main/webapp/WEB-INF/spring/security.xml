@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                    http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+                    http://www.springframework.org/schema/security 
+                    http://www.springframework.org/schema/security/spring-security-4.0.xsd">
+
+	<beans:import resource="classpath:/META-INF/appContext.xml" />
+
+	<!-- http-tag executes login and logout, intercepts url, configure cash and so on -->
+	<http use-expressions="true">
+		<!-- pattern-template of URL's to intercept; access - method by which they will be checked -->
+		<!-- principal -->
+		<intercept-url pattern="/" access="permitAll" />
+		<!-- <intercept-url pattern="/add*" access="isAuthenticated()" /> <intercept-url 
+			pattern="/show*" access="hasRole('ADMIN')" /> -->
+
+		<!-- deactivate csrf filter ??????????????????????-->
+		<csrf disabled="false" />
+		<!-- describe the logining process (login-page - URL of login page; 
+			login-processing-url - URL which performs login ops -->
+		<!-- <form-login login-page="/loging" login-processing-url="/login" authentication-failure-url="/tologin?fail=true" 
+			default-target-url="/tologin" always-use-default-target="true" /> -->
+
+
+		<form-login />
+
+		<!-- describe Logout (logout-url - URL which performs user's logout 
+			of session (if csrf is off, shoul be HTTP POST METHOD), logout-success-url 
+			- URL which will open next after logout -->
+		<logout logout-url="/logout" logout-success-url="/" />
+	</http>
+
+	<!-- Describe system users -->
+	<authentication-manager>
+		<authentication-provider>
+			<!-- initialization of system users - hardcore! -->
+			<user-service>
+				<user name="admin" password="admin" authorities="ROLE_ADMIN" />
+			</user-service>
+		</authentication-provider>
+		<authentication-provider user-service-ref="userService">
+
+		</authentication-provider>
+	</authentication-manager>
+</beans:beans>
