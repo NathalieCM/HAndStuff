@@ -107,19 +107,7 @@ background: moccasin!important;
 .logo img:hover{   /*do some animation here!!!!!!!!!!!!!!!*/
 	opacity: 0.5;
 }
-.socialNets{
-	width: 40%;
-	height: 120px;
-	float: left;
-	padding-left: 80px;
-	padding-top: 3%;
-}
-.socialNets > div>a img{
-	width: 120px;
-	height: 100px;
-	display: inline;
-	float: left;
-}
+
 .logo{
 	padding-top: 3%;
 }
@@ -161,6 +149,6 @@ background: moccasin!important;
 	width: 20%;
 	height: 100%;
 	float: right;
-	background-image: url("../images/notes.jpg");
+	background-image: url(".../images/notes.jpg");
 	border:2px solid moccasin;
 }

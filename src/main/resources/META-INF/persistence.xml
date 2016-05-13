@@ -7,8 +7,8 @@
 	<persistence-unit name="nathUnit" transaction-type="RESOURCE_LOCAL">
 		<class>site.entity.Book</class>
 		<class>site.entity.Film</class>
-		<!-- <class>site.entity.Song</class> -->
-		<!-- <class>site.entity.Picture</class> -->
+		<class>site.entity.Song</class>
+		<class>site.entity.Picture</class>
 
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
