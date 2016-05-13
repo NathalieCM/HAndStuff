@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Hobby And Stuff</title>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/MainPageTemplate.css" />
 
@@ -28,21 +28,26 @@
 <body>
 	<div class="header">
 		<div class="logo">
-			<a href="index.html"><img src="<%=request.getContextPath()%>/resources/images/heading.png" alt="HobbyAndStuff"></a>
+			<a href="index.html"><img
+				src="<%=request.getContextPath()%>/resources/images/heading.png"
+				alt="HobbyAndStuff"></a>
+		</div>
+		<div class="authorization">
+			<security:authorize access="isAuthenticated()">
+
+				<form action="/logout" method="post">
+					<input type="submit" value="logout"> <input type="hidden"
+						name="${_csrf.parameterName}" value="${_csrf.token}" />
+				</form>
+			</security:authorize>
 		</div>
 	</div>
-	<div class="randomCite"></div>
-	<security:authorize access="isAuthenticated()">
 
-		<form action="/logout" method="post">
-			<input type="submit" value="logout"> <input type="hidden"
-				name="${_csrf.parameterName}" value="${_csrf.token}" />
-		</form>
-	</security:authorize>
 	<!--This part provides dropdown Menu-->
 	<script type="text/javascript"
 		src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-	<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery.easing.1.3.js"></script>
+	<script type="text/javascript"
+		src="<%=request.getContextPath()%>/resources/jquery.easing.1.3.js"></script>
 	<script type="text/javascript">
 		$(function() {
 			$('#sdt_menu > li')
@@ -112,63 +117,73 @@
 		});
 	</script>
 	<!--Parts of Menu-->
-	<div class="section">
-		<div class="nav">
-			<ul id="sdt_menu" class="sdt_menu">
-				<li><a href="#"> <img src="<%=request.getContextPath()%>/resources/images/2.png" alt="" /> <span
-						class="sdt_active"></span> <span class="sdt_wrap"> <span
-							class="sdt_link">Top-5 Books</span> <span class="sdt_descr">Just
-								reading</span>
-					</span>
-				</a>
-					<div class="sdt_box">
-						<a href="#">Science-Fiction</a> <a href="#">Fantasy</a> <a
-							href="#">Novel</a> <a href="#">Play</a> <a href="#">Psychology</a>
-						<a href="#">Philosophy</a>
-					</div></li>
-				<li><a href="#"> <img src="<%=request.getContextPath()%>/resources/images/1.png" alt="" /> <span
-						class="sdt_active"></span> <span class="sdt_wrap"> <span
-							class="sdt_link">Top-5 Films</span> <span class="sdt_descr">Need
-								to watch</span>
-					</span>
-				</a>
-					<div class="sdt_box">
-						<a href="#">Thriller</a> <a href="#">Drama</a> <a href="#">Comedy</a>
-						<a href="#">Documental</a>
-					</div></li>
-				<li><a href="#"> <img src="<%=request.getContextPath()%>/resources/images/3.png" alt="" /> <span
-						class="sdt_active"></span> <span class="sdt_wrap"> <span
-							class="sdt_link">Favorite</span> <span class="sdt_descr">A
-								bit of everything</span>
-					</span>
-				</a>
-					<div class="sdt_box">
-						<a href="#">Pictures</a> <a href="#">Quotations</a> <a href="#">Nature</a>
-						<a href="#">Songs</a>
-					</div></li>
-				<li><a href="#"> <img src="<%=request.getContextPath()%>/resources/images/4.png" alt="" /> <span
-						class="sdt_active"></span> <span class="sdt_wrap"> <span
-							class="sdt_link">Poetry</span> <span class="sdt_descr">A
-								part of life</span>
-					</span>
-				</a>
-					<div class="sdt_box">
-						<a href="#">My poor attempts</a> <a href="#">Hokku</a> <a href="#">Different</a>
-						<a href="#">Classic</a>
-					</div></li>
-				<li><a href="#"> <img src="<%=request.getContextPath()%>/resources/images/5.png" alt="" /> <span
-						class="sdt_active"></span> <span class="sdt_wrap"> <span
-							class="sdt_link">Blog</span> <span class="sdt_descr">I
-								like to write</span>
-					</span>
-				</a>
-					<div class="sdt_box">
-						<a href="#">About life</a> <a href="#">About people</a> <a
-							href="#">About world</a>
-					</div></li>
-			</ul>
+	<div class="container">
+		<div class="section">
+			<div class="nav">
+				<ul id="sdt_menu" class="sdt_menu">
+					<li><a href="#"> <img
+							src="<%=request.getContextPath()%>/resources/images/2.png" alt="" />
+							<span class="sdt_active"></span> <span class="sdt_wrap"> <span
+								class="sdt_link">Top-5 Books</span> <span class="sdt_descr">Just
+									reading</span>
+						</span>
+					</a>
+						<div class="sdt_box">
+							<a href="#">Science-Fiction</a> <a href="#">Fantasy</a> <a
+								href="#">Novel</a> <a href="#">Play</a> <a href="#">Psychology</a>
+							<a href="#">Philosophy</a>
+						</div></li>
+					<li><a href="#"> <img
+							src="<%=request.getContextPath()%>/resources/images/1.png" alt="" />
+							<span class="sdt_active"></span> <span class="sdt_wrap"> <span
+								class="sdt_link">Top-5 Films</span> <span class="sdt_descr">Need
+									to watch</span>
+						</span>
+					</a>
+						<div class="sdt_box">
+							<a href="#">Thriller</a> <a href="#">Drama</a> <a href="#">Comedy</a>
+							<a href="#">Documental</a>
+						</div></li>
+					<li><a href="#"> <img
+							src="<%=request.getContextPath()%>/resources/images/3.png" alt="" />
+							<span class="sdt_active"></span> <span class="sdt_wrap"> <span
+								class="sdt_link">Favorite</span> <span class="sdt_descr">A
+									bit of everything</span>
+						</span>
+					</a>
+						<div class="sdt_box">
+							<a href="#">Pictures</a> <a href="#">Quotations</a> <a href="#">Nature</a>
+							<a href="#">Songs</a>
+						</div></li>
+					<li><a href="#"> <img
+							src="<%=request.getContextPath()%>/resources/images/4.png" alt="" />
+							<span class="sdt_active"></span> <span class="sdt_wrap"> <span
+								class="sdt_link">Poetry</span> <span class="sdt_descr">A
+									part of life</span>
+						</span>
+					</a>
+						<div class="sdt_box">
+							<a href="#">My poor attempts</a> <a href="#">Hokku</a> <a
+								href="#">Different</a> <a href="#">Classic</a>
+						</div></li>
+					<li><a href="#"> <img
+							src="<%=request.getContextPath()%>/resources/images/5.png" alt="" />
+							<span class="sdt_active"></span> <span class="sdt_wrap"> <span
+								class="sdt_link">Blog</span> <span class="sdt_descr">I
+									like to write</span>
+						</span>
+					</a>
+						<div class="sdt_box">
+							<a href="#">About life</a> <a href="#">About people</a> <a
+								href="#">About world</a>
+						</div></li>
+				</ul>
+			</div>
+			<div class="mainBody">
+			<p>jdhsjdh</p>
+			</div>
 		</div>
+		<div class="aside"></div>
 	</div>
-	<div class="aside"></div>
 </body>
 </html>
