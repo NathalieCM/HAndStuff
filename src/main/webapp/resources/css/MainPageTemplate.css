@@ -149,6 +149,6 @@ background: moccasin!important;
 	width: 20%;
 	height: 100%;
 	float: right;
-	background-image: url(".../images/notes.jpg");
+	background-image: url("../images/notes.jpg");
 	border:2px solid moccasin;
 }
